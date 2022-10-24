@@ -11,8 +11,8 @@
         ]
     }
 	
-	
     implementation files('libs/nemosdk.aar')
+	
     implementation 'net.openid:appauth:0.11.1'
 	
 -  add file auth_config.json to folder main/assets
