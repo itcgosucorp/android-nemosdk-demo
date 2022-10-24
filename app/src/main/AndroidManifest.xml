@@ -40,18 +40,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- ============================================== -->
-        <!-- ============ Facebook Login SDK ============== -->
-        <!-- ============================================== -->
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-        <meta-data
-            android:name="com.facebook.sdk.ClientToken"
-            android:value="@string/facebook_client_token" />
-        <provider android:authorities="com.facebook.app.FacebookContentProvider116350609033094"
-            android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
+
 
     </application>
 
