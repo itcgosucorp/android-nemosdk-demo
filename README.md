@@ -25,7 +25,7 @@
 	
 	NemoSDK nemoSDK = new NemoSDK();
 
-	nemoSDK.sdkInitialize(this, new IGameOauthListener() {
+	nemoSDK.sdkInitialize(activity, new IGameOauthListener() {
 		@Override
 		public void onLoginSuccess(String access_token, String id_token) {
 
