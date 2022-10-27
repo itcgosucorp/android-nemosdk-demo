@@ -23,58 +23,62 @@
 
 ## Initialize SDK 
 	
-	OidcSDK oidcSDK = new OidcSDK();
+	NemoSDK nemoSDK = new NemoSDK();
 
-	oidcSDK.sdkInitialize(this, new IGameOauthListener() {
+	nemoSDK.sdkInitialize(this, new IGameOauthListener() {
 		@Override
-		public void onLoginSuccess(String Email, String UserName, String accesstoken) {
+		public void onLoginSuccess(String access_token, String id_token) {
 
 		}
 
 		@Override
-		public void onLogout() {
+		public void onLogoutSuccess() {
 
 			
 		}
 
 		@Override
-		public void onError() {
+		public void onLogoutFail() {
 
 		}
 	});
 	
 ## Login
 
-	oidcSDK.startAuth();
+	nemoSDK.login();
+	
+## getUserInfo  (return json)
+
+	nemoSDK.getUserInfo();
 
 ## Logout
 	
-	oidcSDK.logout();
+	nemoSDK.logout();
 	
 ## Add function onActivityResult
   
 	super.onActivityResult(requestCode, resultCode, data);
-	if(oidcSDK != null){
-		oidcSDK.onActivityResult(requestCode, resultCode, data);
+	if(nemoSDK != null){
+		nemoSDK.onActivityResult(requestCode, resultCode, data);
 	}
 
 ## Add function onStart
 	
 	super.onStart();
-	if(oidcSDK != null){
-		oidcSDK.onStart();
+	if(nemoSDK != null){
+		nemoSDK.onStart();
 	}
 
 ## Add function onStop
 
 	super.onStop();
-	if(oidcSDK != null){
-		oidcSDK.onStop();
+	if(nemoSDK != null){
+		nemoSDK.onStop();
 	}
 
 ## Add function onDestroy
 
 	super.onDestroy();
-	if(oidcSDK != null){
-		oidcSDK.onDestroy();
+	if(nemoSDK != null){
+		nemoSDK.onDestroy();
 	}
