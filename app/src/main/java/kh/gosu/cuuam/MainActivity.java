@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.nemo.nsdk.inteface.IGameOauthListener;
 import com.nemo.nsdk.inteface.OnSingleClickListener;
-import com.nemo.nsdk.oidc.OidcSDK;
+import com.nemo.nsdk.oidc.NemoSDK;
 import com.nemo.nsdk.oidc.User;
 
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnShowInfoUser;
     private Button btnDangXuat;
 
-    OidcSDK oidcSDK = null;
+    NemoSDK nemoSDK = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,34 +34,35 @@ public class MainActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
 
-        oidcSDK = new OidcSDK();
+        nemoSDK = new NemoSDK();
 
-        oidcSDK.sdkInitialize(this, new IGameOauthListener() {
+        initView();
+
+        nemoSDK.sdkInitialize(this, new IGameOauthListener() {
             @Override
-            public void onLoginSuccess(String Email, String UserName, String accesstoken) {
+            public void onLoginSuccess(String access_token, String id_token) {
 
+                Log.d("T123", access_token);
                 btnDangNhap.setVisibility(View.GONE);
                 btnDangXuat.setVisibility(View.VISIBLE);
-                btnAccessToken.setVisibility(View.VISIBLE);
+
                 btnShowInfoUser.setVisibility(View.VISIBLE);
             }
 
             @Override
-            public void onLogout() {
-
+            public void onLogoutSuccess() {
                 btnDangNhap.setVisibility(View.VISIBLE);
                 btnDangXuat.setVisibility(View.GONE);
-                btnAccessToken.setVisibility(View.GONE);
                 btnShowInfoUser.setVisibility(View.GONE);
             }
 
             @Override
-            public void onError() {
+            public void onLogoutFail() {
 
             }
         });
 
-        initView();
+
 
     }
 
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         btnDangNhap.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View var1) {
-                oidcSDK.startAuth();
+                nemoSDK.login();
             }
         });
 
@@ -79,39 +80,25 @@ public class MainActivity extends AppCompatActivity {
         btnDangXuat.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View var1) {
-                oidcSDK.logout();
+                nemoSDK.logout();
             }
         });
 
         btnDangNhap.setVisibility(View.VISIBLE);
-
         btnDangXuat.setVisibility(View.GONE);
-
-        btnAccessToken = (Button)findViewById(R.id.btnAccessToken);
-        btnAccessToken.setVisibility(View.GONE);
-        btnAccessToken.setOnClickListener(new OnSingleClickListener() {
-            @Override
-            public void onSingleClick(View var1) {
-                String token = oidcSDK.getToken();
-                Toast.makeText(MainActivity.this, token  ,Toast.LENGTH_LONG).show();
-
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("label", token);
-                clipboard.setPrimaryClip(clip);
-            }
-        });
 
         btnShowInfoUser = (Button) findViewById(R.id.btnShowInfoUser);
         btnShowInfoUser.setVisibility(View.GONE);
         btnShowInfoUser.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View var1) {
-                User user = oidcSDK.getUser();
 
-                Toast.makeText(MainActivity.this, user.getEmail()+ "--"+user.getFull_name()  ,Toast.LENGTH_LONG).show();
+                String info = nemoSDK.getUserInfo();
+
+                Toast.makeText(MainActivity.this, info  ,Toast.LENGTH_LONG).show();
 
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("label", user.getEmail()+ "--"+user.getFull_name());
+                ClipData clip = ClipData.newPlainText("label", info);
                 clipboard.setPrimaryClip(clip);
             }
         });
@@ -123,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(oidcSDK != null){
-            oidcSDK.onActivityResult(requestCode, resultCode, data);
+        if(nemoSDK != null){
+            nemoSDK.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -132,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if(oidcSDK != null){
-            oidcSDK.onStart();
+        if(nemoSDK != null){
+            nemoSDK.onStart();
         }
     }
 
@@ -141,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        if(oidcSDK != null){
-            oidcSDK.onStop();
+        if(nemoSDK != null){
+            nemoSDK.onStop();
         }
 
     }
@@ -151,8 +138,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        if(oidcSDK != null){
-            oidcSDK.onDestroy();
+        if(nemoSDK != null){
+            nemoSDK.onDestroy();
         }
     }
 }

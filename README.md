@@ -12,7 +12,7 @@
     }
 	
     implementation files('libs/nemosdk.aar')
-	
+    implementation("com.squareup.okio:okio:3.2.0")
     implementation 'net.openid:appauth:0.11.1'
 	
 -  add file auth_config.json to folder main/assets

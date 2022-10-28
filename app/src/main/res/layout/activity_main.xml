@@ -29,21 +29,12 @@
 
 
         <Button
-            android:id="@+id/btnAccessToken"
-            android:layout_width="match_parent"
-            android:layout_height="45dip"
-            android:layout_marginTop="20dip"
-            android:background="@drawable/border_button"
-            android:text="Get Access Token"
-            android:textColor="@color/colorWhite" />
-
-        <Button
             android:id="@+id/btnShowInfoUser"
             android:layout_width="match_parent"
             android:layout_height="45dip"
             android:layout_marginTop="20dip"
             android:background="@drawable/border_button"
-            android:text="Profile User"
+            android:text="getUserInfo"
             android:textColor="@color/colorWhite" />
 
 
