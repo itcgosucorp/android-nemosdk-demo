@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
+            public void onLoginFail() {
+
+            }
+
+            @Override
             public void onLogoutSuccess() {
                 btnDangNhap.setVisibility(View.VISIBLE);
                 btnDangXuat.setVisibility(View.GONE);
