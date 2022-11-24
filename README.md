@@ -27,25 +27,24 @@
 
 	nemoSDK.sdkInitialize(activity, new IGameOauthListener() {
 		@Override
-		public void onLoginSuccess(String access_token, String id_token) {
+        public void onLoginSuccess(String access_token, String id_token) {
 
-		}
-        
-         @Override
-         public void onLoginFail(String msg, String code) {
+        }
 
-         }
+        @Override
+        public void onLoginFail(String msg, String code) {
 
-		@Override
-		public void onLogoutSuccess() {
+        }
 
-			
-		}
+        @Override
+        public void onLogoutSuccess() {
+          
+        }
 
-		@Override
-		public void onLogoutFail() {
+        @Override
+        public void onLogoutFail() {
 
-		}
+        }
 	});
 	
 ## Login
