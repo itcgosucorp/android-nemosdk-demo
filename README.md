@@ -2,12 +2,13 @@
 
 # Configuration
 
--  build.gradle
+- build.gradle
 
-	defaultConfig {
+    defaultConfig {
         
         manifestPlaceholders = [
-                'appAuthRedirectScheme': 'gid-uat.nemoverse.io'
+                'appAuthRedirectScheme': 'redirect_uri'
+                'appAuthRedirectCallback': '/callback'
         ]
     }
 	
@@ -15,10 +16,9 @@
     + implementation("com.squareup.okio:okio:3.2.0")
     + implementation 'net.openid:appauth:0.11.1'
 	
--  add file auth_config.json to folder main/assets
+- add file auth_config.json to folder main/assets
 
 
-	
 # Use SDK
 
 ## Initialize SDK 
@@ -30,6 +30,11 @@
 		public void onLoginSuccess(String access_token, String id_token) {
 
 		}
+        
+         @Override
+         public void onLoginFail(String msg, String code) {
+
+         }
 
 		@Override
 		public void onLogoutSuccess() {

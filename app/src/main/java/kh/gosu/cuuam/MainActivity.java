@@ -21,7 +21,6 @@ import com.nemo.nsdk.oidc.User;
 public class MainActivity extends AppCompatActivity {
 
     private Button btnDangNhap;
-    private Button btnAccessToken;
     private Button btnShowInfoUser;
     private Button btnDangXuat;
 
@@ -32,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Context context = getApplicationContext();
-
         nemoSDK = new NemoSDK();
 
         initView();
@@ -42,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLoginSuccess(String access_token, String id_token) {
 
-                Log.d("T123", access_token);
+                Log.d("access_token", access_token);
                 btnDangNhap.setVisibility(View.GONE);
                 btnDangXuat.setVisibility(View.VISIBLE);
 
@@ -50,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onLoginFail() {
+            public void onLoginFail(String msg, String code) {
 
             }
+
+
 
             @Override
             public void onLogoutSuccess() {
