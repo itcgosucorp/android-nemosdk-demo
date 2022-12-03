@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.nemo.nsdk.inteface.IGameOauthListener;
 import com.nemo.nsdk.inteface.OnSingleClickListener;
 import com.nemo.nsdk.oidc.NemoSDK;
+import com.nemo.nsdk.oidc.SdkConfig;
 import com.nemo.nsdk.oidc.User;
 
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnDangNhap;
     private Button btnShowInfoUser;
     private Button btnDangXuat;
+    private Button btnRefreshToken;
 
     NemoSDK nemoSDK = null;
 
@@ -41,8 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("access_token", access_token);
                 btnDangNhap.setVisibility(View.GONE);
-                btnDangXuat.setVisibility(View.VISIBLE);
 
+                btnDangXuat.setVisibility(View.VISIBLE);
+                btnRefreshToken.setVisibility(View.VISIBLE);
                 btnShowInfoUser.setVisibility(View.VISIBLE);
             }
 
@@ -104,6 +107,15 @@ public class MainActivity extends AppCompatActivity {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("label", info);
                 clipboard.setPrimaryClip(clip);
+            }
+        });
+
+        btnRefreshToken = (Button) findViewById(R.id.btnRefreshToken);
+        btnRefreshToken.setVisibility(View.GONE);
+        btnRefreshToken.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View view) {
+                Toast.makeText(MainActivity.this, SdkConfig.getInstance().refreshToken, Toast.LENGTH_LONG).show();
             }
         });
     }
