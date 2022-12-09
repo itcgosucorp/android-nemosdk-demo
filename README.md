@@ -33,17 +33,14 @@ defaultConfig {
       'appAuthRedirectCallback': '/callback'
     ]
 }
-	
-	
+```
+		
 - add file auth_config.json to folder main/assets
 
+USAGE NEMO LOGIN SDK
+--------------------
 
-INSTALLATION
-------------
-
-# NEMO LOGIN SDK
-
-## Initialize SDK 
+#Initialize SDK 
 	
 	NemoSDK nemoSDK = new NemoSDK();
 
@@ -113,9 +110,7 @@ INSTALLATION
 USAGE NEMO TRACKING SDK
 --------------------
 
-# Use NEMO LOGIN SDK
-
-## Initialize SDK 
+#Initialize SDK 
 
 Tracking.getInstance(activity).start("af_key");
 
