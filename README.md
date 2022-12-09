@@ -40,7 +40,8 @@ defaultConfig {
 USAGE NEMO LOGIN SDK
 --------------------
 
-#Initialize SDK 
+```
+//Initialize SDK 
 	
 	NemoSDK nemoSDK = new NemoSDK();
 
@@ -66,9 +67,11 @@ USAGE NEMO LOGIN SDK
         }
 	});
 	
-## Login
+//Login
 
 	nemoSDK.login();
+
+```
 	
 ## getUserInfo  (return json)
 
