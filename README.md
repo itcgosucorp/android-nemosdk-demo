@@ -79,37 +79,38 @@ nemoSDK.logout();
 //Add function onActivityResult
 super.onActivityResult(requestCode, resultCode, data);
 if(nemoSDK != null){
-	nemoSDK.onActivityResult(requestCode, resultCode, data);
+  nemoSDK.onActivityResult(requestCode, resultCode, data);
 }
 
 //Add function onStart
 super.onStart();
 if(nemoSDK != null){
-	nemoSDK.onStart();
+  nemoSDK.onStart();
 }
 
 //Add function onStop
 super.onStop();
 if(nemoSDK != null){
-	nemoSDK.onStop();
+  nemoSDK.onStop();
 }
 
 //Add function onDestroy
 super.onDestroy();
 if(nemoSDK != null){
-	nemoSDK.onDestroy();
+  nemoSDK.onDestroy();
 }
 ```
 	
 USAGE NEMO TRACKING SDK
 --------------------
-
-#Initialize SDK 
+```
+//Initialize SDK 
 
 Tracking.getInstance(activity).start("af_key");
 
-## Method
-- Tracking.getInstance(activity).trackingStartTrialEventAF()
-- Tracking.getInstance(activity).trackLoginEventAF()
-- Tracking.getInstance(activity).trackingStartTrialEventCustomAF(String jsonContent) // jsonContent = {"event": "event_name", "params": {"key": "value", "key2": "value2"} }
+Tracking.getInstance(activity).trackingStartTrialEventAF()
+Tracking.getInstance(activity).trackLoginEventAF()
+Tracking.getInstance(activity).trackingStartTrialEventCustomAF(String jsonContent) // jsonContent = {"event": "event_name", "params": {"key": "value", "key2": "value2"} }
+
+```
 
