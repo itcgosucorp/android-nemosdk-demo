@@ -37,6 +37,9 @@ defaultConfig {
 	
 - add file auth_config.json to folder main/assets
 
+
+
+
 USAGE NEMO LOGIN SDK
 --------------------
 
