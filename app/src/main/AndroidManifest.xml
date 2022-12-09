@@ -21,7 +21,24 @@
             </intent-filter>
         </activity>
 
-
+        <!-- =========================== -->
+        <!-- ======= AF Tracking ======= -->
+        <!-- =========================== -->
+        <receiver
+            android:name="com.appsflyer.MultipleInstallBroadcastReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <!-- single broadcast -->
+        <receiver
+            android:name="com.appsflyer.SingleInstallBroadcastReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
 
     </application>
 
