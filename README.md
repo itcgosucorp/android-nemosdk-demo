@@ -16,12 +16,12 @@ dependencies {
     // Nemo Login only
     implementation files('libs/nemosdk_login.aar')
     implementation("com.squareup.okio:okio:3.2.0")
-	implementation 'net.openid:appauth:0.11.1'
+    implementation 'net.openid:appauth:0.11.1'
 
     // Nemo Tracking only
     implementation files('libs/nemosdk_tracking.aar')
-	implementation 'com.appsflyer:af-android-sdk:6.3.2'
-	implementation 'com.android.installreferrer:installreferrer:2.2'
+    implementation 'com.appsflyer:af-android-sdk:6.3.2'
+    implementation 'com.android.installreferrer:installreferrer:2.2'
 
 }	
 
@@ -29,8 +29,8 @@ dependencies {
 defaultConfig {
 	
 	manifestPlaceholders = [
-			'appAuthRedirectScheme': 'redirect_uri'
-			'appAuthRedirectCallback': '/callback'
+        'appAuthRedirectScheme': 'redirect_uri'
+        'appAuthRedirectCallback': '/callback'
 	]
 }
 	
@@ -46,7 +46,7 @@ defaultConfig {
 	NemoSDK nemoSDK = new NemoSDK();
 
 	nemoSDK.sdkInitialize(activity, new IGameOauthListener() {
-		@Override
+        @Override
         public void onLoginSuccess(String access_token, String id_token) {
 
         }
@@ -116,7 +116,7 @@ defaultConfig {
 Tracking.getInstance(activity).start("af_key");
 
 ## Method
-- trackingStartTrialEventAF
-- trackLoginEventAF
-- trackingStartTrialEventCustomAF  (String jsonContent) // jsonContent = {"event": "event_name", "params": {"key": "value", "key2": "value2"} }
+- Tracking.getInstance(activity).trackingStartTrialEventAF()
+- Tracking.getInstance(activity).trackLoginEventAF()
+- Tracking.getInstance(activity).trackingStartTrialEventCustomAF(String jsonContent) // jsonContent = {"event": "event_name", "params": {"key": "value", "key2": "value2"} }
 
