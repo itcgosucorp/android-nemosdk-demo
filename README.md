@@ -37,7 +37,8 @@ defaultConfig {
 	
 - add file auth_config.json to folder main/assets
 
--------------------------- USAGE NEMO LOGIN SDK ------------------------------
+USAGE NEMO LOGIN SDK
+--------------------
 
 # NEMO LOGIN SDK
 
@@ -107,7 +108,9 @@ defaultConfig {
 		nemoSDK.onDestroy();
 	}
 
--------------------------- USAGE NEMO TRACKING SDK ------------------------------
+	
+USAGE NEMO TRACKING SDK
+--------------------
 
 # Use NEMO LOGIN SDK
 
