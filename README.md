@@ -1,25 +1,44 @@
 # Android NEMOSDK
 
-# Configuration
+FEATURES
+--------
+* [Login]
+* [Tracking]
 
-- build.gradle
+INSTALLATION
+------------
+Nemo SDKs are published to Maven as independent modules. To utilize a feature listed above
+include the appropriate dependency (or dependencies) listed below in your `app/build.gradle` file.
+```gradle
+dependencies {
+    
+    // Nemo Login only
+    implementation files('libs/nemosdk_login.aar')
+	implementation("com.squareup.okio:okio:3.2.0")
+	implementation 'net.openid:appauth:0.11.1'
 
-    defaultConfig {
-        
-        manifestPlaceholders = [
-                'appAuthRedirectScheme': 'redirect_uri'
-                'appAuthRedirectCallback': '/callback'
-        ]
-    }
+    // Nemo Tracking only
+    implementation files('libs/nemosdk_tracking.aar')
+	implementation 'com.appsflyer:af-android-sdk:6.3.2'
+	implementation 'com.android.installreferrer:installreferrer:2.2'
+
+}	
+
+
+defaultConfig {
 	
-    + implementation files('libs/nemosdk.aar')
-    + implementation("com.squareup.okio:okio:3.2.0")
-    + implementation 'net.openid:appauth:0.11.1'
+	manifestPlaceholders = [
+			'appAuthRedirectScheme': 'redirect_uri'
+			'appAuthRedirectCallback': '/callback'
+	]
+}
+	
 	
 - add file auth_config.json to folder main/assets
 
+-------------------------- USAGE NEMO LOGIN SDK ------------------------------
 
-# Use SDK
+# NEMO LOGIN SDK
 
 ## Initialize SDK 
 	
@@ -86,3 +105,17 @@
 	if(nemoSDK != null){
 		nemoSDK.onDestroy();
 	}
+
+-------------------------- USAGE NEMO TRACKING SDK ------------------------------
+
+# Use NEMO LOGIN SDK
+
+## Initialize SDK 
+
+Tracking.getInstance(activity).start("af_key");
+
+## Method
+- trackingStartTrialEventAF
+- trackLoginEventAF
+- trackingStartTrialEventCustomAF  (String jsonContent) // jsonContent = {"event": "event_name", "params": {"key": "value", "key2": "value2"} }
+

@@ -17,6 +17,7 @@ import com.nemo.nsdk.inteface.OnSingleClickListener;
 import com.nemo.nsdk.oidc.NemoSDK;
 import com.nemo.nsdk.oidc.SdkConfig;
 import com.nemo.nsdk.oidc.User;
+import com.nemo.nsdk.tracking.Tracking;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Tracking.getInstance(this).start("");
         nemoSDK = new NemoSDK();
 
         initView();
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 btnDangNhap.setVisibility(View.VISIBLE);
                 btnDangXuat.setVisibility(View.GONE);
                 btnShowInfoUser.setVisibility(View.GONE);
+                btnRefreshToken.setVisibility(View.GONE);
             }
 
             @Override
@@ -115,7 +118,11 @@ public class MainActivity extends AppCompatActivity {
         btnRefreshToken.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View view) {
-                Toast.makeText(MainActivity.this, SdkConfig.getInstance().refreshToken, Toast.LENGTH_LONG).show();
+
+                if(SdkConfig.getInstance().refreshToken != null) {
+                    Log.d("refreshToken", SdkConfig.getInstance().refreshToken);
+                }
+
             }
         });
     }
