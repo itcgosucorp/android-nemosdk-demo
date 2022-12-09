@@ -28,10 +28,10 @@ dependencies {
 
 defaultConfig {
 	
-manifestPlaceholders = [
-   'appAuthRedirectScheme': 'redirect_uri'
-   'appAuthRedirectCallback': '/callback'
-]
+   manifestPlaceholders = [
+     'appAuthRedirectScheme': 'redirect_uri'
+     'appAuthRedirectCallback': '/callback'
+  ]
 }
 	
 	
