@@ -1,4 +1,5 @@
-# Android NEMOSDK
+Nemo SDK for Android
+========================
 
 FEATURES
 --------
@@ -14,7 +15,7 @@ dependencies {
     
     // Nemo Login only
     implementation files('libs/nemosdk_login.aar')
-	implementation("com.squareup.okio:okio:3.2.0")
+    implementation("com.squareup.okio:okio:3.2.0")
 	implementation 'net.openid:appauth:0.11.1'
 
     // Nemo Tracking only
