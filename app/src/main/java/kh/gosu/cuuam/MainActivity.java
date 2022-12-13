@@ -1,5 +1,6 @@
 package kh.gosu.cuuam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ClipData;
@@ -12,6 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.nemo.nsdk.inteface.IGameOauthListener;
 import com.nemo.nsdk.inteface.OnSingleClickListener;
 import com.nemo.nsdk.oidc.NemoSDK;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         nemoSDK = new NemoSDK();
 
         initView();
+
 
         nemoSDK.sdkInitialize(this, new IGameOauthListener() {
             @Override

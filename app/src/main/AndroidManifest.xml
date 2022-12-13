@@ -3,6 +3,8 @@
     package="kh.gosu.cuuam">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- use for appsflyer android 12 -->
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 

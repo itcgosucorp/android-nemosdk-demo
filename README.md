@@ -22,9 +22,10 @@ dependencies {
     implementation files('libs/nemosdk_tracking.aar')
     implementation 'com.appsflyer:af-android-sdk:6.3.2'
     implementation 'com.android.installreferrer:installreferrer:2.2'
-
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
 }	
-
 
 defaultConfig {
 	
@@ -33,9 +34,25 @@ defaultConfig {
       'appAuthRedirectCallback': '/callback'
     ]
 }
+```	
+// IF used tracking add plugin
+apply plugin: 'com.google.gms.google-services'
 ```
-		
+dependencies {
+   ...
+   // Google Services plugin
+   classpath 'com.google.gms:google-services:4.3.3'
+}
+```
+The google-services.json file is generally placed in the app/ directory (at the root of the Android Studio app module)
+```
+app/
+   google-services.json
+```
+
 - add file auth_config.json to folder main/assets
+
+
 
 USAGE NEMO LOGIN SDK
 --------------------
