@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSingleClick(View var1) {
 
-                String info = nemoSDK.getUserInfo();
+                String info = nemoSDK.getUserInfo(); 
 
                 Toast.makeText(MainActivity.this, info  ,Toast.LENGTH_LONG).show();
 

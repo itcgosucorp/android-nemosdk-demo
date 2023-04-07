@@ -33,7 +33,7 @@
             android:layout_height="45dip"
             android:layout_marginTop="20dip"
             android:background="@drawable/border_button"
-            android:text="refreshToken"
+            android:text="Get refreshToken"
             android:textColor="@color/colorWhite" />
 
         <Button
@@ -42,7 +42,7 @@
             android:layout_height="45dip"
             android:layout_marginTop="20dip"
             android:background="@drawable/border_button"
-            android:text="getUserInfo"
+            android:text="get UserInfo"
             android:textColor="@color/colorWhite" />
 
 
